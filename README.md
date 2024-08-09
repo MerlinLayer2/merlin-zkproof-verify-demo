@@ -1,6 +1,6 @@
 # merlin-zkproof-verify-demo
 
-### 1. This demo is for call the merlin get zkproof and verify zkproof method
+### 1. This demo is for call the merlin_getZkProof and merlin_verifyZkProof method
 
 ### 2. merlin_getZkProof method 
  * the params is the block number 
