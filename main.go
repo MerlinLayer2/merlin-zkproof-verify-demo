@@ -37,7 +37,7 @@ func main() {
 	}
 
 	// 2. verify the zk proof of block through merlin mainnet node
-	response, err = client.JSONRPCCall(merlinMainnetUrl, "merlin_verifyZkProof", zkpoof)
+	response, err = client.JSONRPCCall(merlinMainnetUrl, "merlin_verifyZkProof", zkpoof.ForkID, zkpoof.Proof, zkpoof.PubSignals)
 	if err != nil || response.Error != nil {
 		log.Fatal("call merlin_verifyZkProof fail", err)
 	}
@@ -68,7 +68,9 @@ func main() {
 }
 
 type ZKProof struct {
-	ForkID     uint64          `json:"forkID"`
-	Proof      [24]common.Hash `json:"proof"`
-	PubSignals [1]*big.Int     `json:"PubSignals"`
+	ForkID        uint64          `json:"forkID"`
+	Proof         [24]common.Hash `json:"proof"`
+	PubSignals    [1]*big.Int     `json:"pubSignals"`
+	StartBlockNum uint64          `json:"startBlockNum"`
+	EndBlockNum   uint64          `json:"endBlockNum"`
 }
