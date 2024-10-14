@@ -17,9 +17,8 @@ import (
 )
 
 var (
-	merlinMainnetUrl = "https://rpc.merlinchain.io"                                      //merlin mainnet url
-	merlinL1Url      = "http://*.*.*.*:8545"                                             // merlin l1 url
-	verifierContract = common.HexToAddress("0x65f25cED51CfDe249f307Cf6fC60A9988D249A69") // this verifier address is for forkid 8
+	merlinMainnetUrl = "https://rpc.merlinchain.io" //merlin mainnet url
+	merlinL1Url      = "http://*.*.*.*:8545"        // merlin l1 url
 	verifierAbiStr   = `[{"inputs":[{"internalType":"bytes32[24]","name":"proof","type":"bytes32[24]"},{"internalType":"uint256[1]","name":"pubSignals","type":"uint256[1]"}],"name":"verifyProof","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"}]`
 )
 
@@ -48,7 +47,8 @@ func main() {
 	}
 	fmt.Println("the verify proof is", verifyRes)
 
-	// 3. or you can verify the zk proof through the L1 verifier contract
+	// 3. Or you can verify the zkproof by yourself delpoyed verify contract
+	verifierContract := common.HexToAddress("0x65f25cED51CfDe249f307Cf6fC60A9988D249A69") // this verifier address is delpoy by yourself
 	ethc, err := ethclient.DialContext(context.Background(), merlinL1Url)
 	if err != nil {
 		log.Fatal("dial to  merlinL1Url fail", err)
