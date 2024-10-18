@@ -47,7 +47,7 @@ func main() {
 	}
 	fmt.Println("the verify proof is", verifyRes)
 
-	// 3. Or you can verify the zkproof by yourself delpoyed verify contract
+	// 3. You can verify the zkproof by yourself by delpoyed a verify contract
 	verifierContract := common.HexToAddress("0x65f25cED51CfDe249f307Cf6fC60A9988D249A69") // this verifier address is delpoy by yourself
 	ethc, err := ethclient.DialContext(context.Background(), merlinL1Url)
 	if err != nil {
@@ -71,6 +71,12 @@ type ZKProof struct {
 	ForkID        uint64          `json:"forkID"`
 	Proof         [24]common.Hash `json:"proof"`
 	PubSignals    [1]*big.Int     `json:"pubSignals"`
+	RpubSignals   *RawPubSignals  `json:"rawPubSignals,omitempty"`
 	StartBlockNum uint64          `json:"startBlockNum"`
 	EndBlockNum   uint64          `json:"endBlockNum"`
+}
+
+type RawPubSignals struct {
+	Snark  *Snark `json:"snark"`
+	Rfield string `json:"rfield"`
 }

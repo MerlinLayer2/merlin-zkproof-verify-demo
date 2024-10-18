@@ -2,7 +2,11 @@ module merlin-zkproof-verify-demo
 
 go 1.21.7
 
-require github.com/0xPolygonHermez/zkevm-node v0.7.3
+require (
+	github.com/0xPolygonHermez/zkevm-node v0.7.3
+	github.com/ethereum/go-ethereum v1.13.11
+	github.com/stretchr/testify v1.9.0
+)
 
 require (
 	github.com/0xPolygonHermez/zkevm-data-streamer v0.2.3 // indirect
@@ -31,7 +35,6 @@ require (
 	github.com/dlclark/regexp2 v1.7.0 // indirect
 	github.com/dop251/goja v0.0.0-20230806174421-c933cf95e127 // indirect
 	github.com/ethereum/c-kzg-4844 v0.4.0 // indirect
-	github.com/ethereum/go-ethereum v1.13.11 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/gballet/go-libpcsclite v0.0.0-20190607065134-2772fd86a8ff // indirect
 	github.com/gballet/go-verkle v0.1.1-0.20231031103413-a67434b50f46 // indirect
@@ -81,6 +84,7 @@ require (
 	github.com/mmcloughlin/addchain v0.4.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/prometheus/client_golang v1.18.0 // indirect
 	github.com/prometheus/client_model v0.5.0 // indirect
 	github.com/prometheus/common v0.45.0 // indirect
