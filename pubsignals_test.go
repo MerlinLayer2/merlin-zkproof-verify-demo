@@ -9,7 +9,7 @@ import (
 
 func TestGetPubSignals(t *testing.T) {
 	const expectedPubsignals = "6603510186853169972152213777899593011637911202509582519799533839979742083878"
-	snark := &Snark{
+	snark := &InputSnark{
 		Sender:           common.HexToAddress("0xe76cc099094d484e67cd7b777d22a93afc2920cc"),
 		OldStateRoot:     common.HexToHash("0xbc26b56bbd4fa7c91c97a0e0fea120b7d26eba75daa2cc3035b5edcc2b5c6630"),
 		OldAccInputHash:  common.HexToHash("0xab07cc71710e24d280bcd070abf25eb01b99788c985c9cd3ede196a5e9586672"),

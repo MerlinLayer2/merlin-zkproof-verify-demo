@@ -12,7 +12,7 @@ const (
 	uint64ByteLength = 8
 )
 
-type Snark struct {
+type InputSnark struct {
 	Sender           common.Address `json:"sender"`
 	OldStateRoot     common.Hash    `json:"oldStateRoot"`
 	OldAccInputHash  common.Hash    `json:"oldAccInputHash"`
@@ -25,7 +25,7 @@ type Snark struct {
 	FinalNewBatch    uint64         `json:"finalNewBatch"`
 }
 
-func getPubSignals(snark *Snark, rfield string) (*big.Int, error) {
+func getPubSignals(snark *InputSnark, rfield string) (*big.Int, error) {
 	// 1. 将snark转为bytes类型
 	d, err := getSnarkBytes(snark)
 	if err != nil {
@@ -43,7 +43,7 @@ func getPubSignals(snark *Snark, rfield string) (*big.Int, error) {
 	return signal, nil
 }
 
-func getSnarkBytes(input *Snark) ([]byte, error) {
+func getSnarkBytes(input *InputSnark) ([]byte, error) {
 	var result []byte
 	common.LeftPadBytes(big.NewInt(0).SetUint64(input.InitNumBatch).Bytes(), common.HashLength)
 	result = append(result, input.Sender[:]...)

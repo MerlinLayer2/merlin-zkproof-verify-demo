@@ -77,6 +77,6 @@ type ZKProof struct {
 }
 
 type RawPubSignals struct {
-	Snark  *Snark `json:"snark"`
-	Rfield string `json:"rfield"`
+	Snark  *InputSnark `json:"snark"`
+	Rfield string      `json:"rfield"`
 }
